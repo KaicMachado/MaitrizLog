@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MAITRIZ Log - Soluções logísticas integradas com segurança, pontualidade e excelência. Armazenagem, transporte e distribuição em Vila Velha/ES.">
+    <title>MAITRIZ Log - Soluções Logísticas Integradas | Vila Velha/ES</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== RESET E VARIÁVEIS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --azul-escuro: #0A1628;
+            --azul-medio: #1a2942;
+            --dourado: #C9A961;
+            --dourado-claro: #d4b876;
+            --branco: #FFFFFF;
+            --cinza-claro: #F5F5F5;
+            --cinza-medio: #E0E0E0;
+            --texto-escuro: #333333;
+            --texto-medio: #666666;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--texto-escuro);
+            overflow-x: hidden;
+        }
+        
+        /* ===== UTILITÁRIOS ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--azul-escuro);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--dourado), var(--dourado-claro));
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--texto-medio);
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--dourado), var(--dourado-claro));
+            color: var(--azul-escuro);
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.5);
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--branco);
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--branco);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--branco);
+            color: var(--azul-escuro);
+        }
+        
+        /* ===== HEADER/NAVEGAÇÃO ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+        }
+        
+        .header.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--branco);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: var(--dourado);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dourado);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--dourado);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--branco);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('hero-warehouse.jpg') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .hero-diagonal {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(201, 169, 97, 0.1) 100%);
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 169, 97, 0.2);
+            color: var(--dourado);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid var(--dourado);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--branco);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 span {
+            color: var(--dourado);
+            display: block;
+        }
+        
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: var(--cinza-claro);
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--cinza-medio);
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-stats {
+            margin-top: 60px;
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            color: var(--branco);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dourado);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--cinza-medio);
+        }
+        
+        /* ===== SOBRE NÓS ===== */
+        .sobre {
+            padding: 100px 0;
+            background: var(--branco);
+        }
+        
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .sobre-text h2 {
+            margin-bottom: 25px;
+        }
+        
+        .sobre-text p {
+            font-size: 1.05rem;
+            color: var(--texto-medio);
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+        
+        .sobre-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .sobre-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .sobre-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .sobre-destaque {
+            background: var(--cinza-claro);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--dourado);
+            margin-top: 30px;
+        }
+        
+        .sobre-destaque h3 {
+            color: var(--azul-escuro);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* ===== MISSÃO, VISÃO E VALORES ===== */
+        .mvv {
+            padding: 100px 0;
+            background: var(--azul-escuro);
+            color: var(--branco);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mvv::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(201, 169, 97, 0.05));
+            clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        
+        .mvv-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .mvv-header .section-title {
+            color: var(--branco);
+        }
+        
+        .mvv-header .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .mvv-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .mvv-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--dourado);
+        }
+        
+        .mvv-icon {
+            font-size: 3rem;
+            color: var(--dourado);
+            margin-bottom: 20px;
+        }
+        
+        .mvv-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dourado);
+        }
+        
+        .mvv-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--cinza-claro);
+        }
+        
+        .mvv-card ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .mvv-card ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .mvv-card ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--dourado);
+        }
+        
+        /* ===== SERVIÇOS ===== */
+        .servicos {
+            padding: 100px 0;
+            background: var(--cinza-claro);
+        }
+        
+        .servicos-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .servico-card {
+            background: var(--branco);
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 2px solid transparent;
+        }
+        
+        .servico-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--dourado);
+        }
+        
+        .servico-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--dourado);
+            transition: all 0.3s ease;
+        }
+        
+        .servico-card:hover .servico-icon {
+            background: linear-gradient(135deg, var(--dourado), var(--dourado-claro));
+            color: var(--azul-escuro);
+            transform: scale(1.1);
+        }
+        
+        .servico-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--azul-escuro);
+            margin-bottom: 15px;
+        }
+        
+        .servico-card p {
+            font-size: 0.95rem;
+            color: var(--texto-medio);
+            line-height: 1.6;
+        }
+        
+        /* ===== ESTRUTURA ===== */
+        .estrutura {
+            padding: 100px 0;
+            background: var(--branco);
+        }
+        
+        .estrutura-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .estrutura-info h2 {
+            margin-bottom: 25px;
+        }
+        
+        .estrutura-info p {
+            font-size: 1.05rem;
+            color: var(--texto-medio);
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+        
+        .estrutura-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .estrutura-stat {
+            background: var(--cinza-claro);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--dourado);
+        }
+        
+        .estrutura-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--azul-escuro);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .estrutura-stat-label {
+            font-size: 0.9rem;
+            color: var(--texto-medio);
+        }
+        
+        .estrutura-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .estrutura-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .estrutura-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .estrutura-image:hover img {
+            transform: scale(1.1);
+        }
+        
+        .estrutura-image:first-child {
+            grid-column: span 2;
+        }
+        
+        .estrutura-image:first-child img {
+            height: 350px;
+        }
+        
+        /* ===== PARCEIROS ===== */
+        .parceiros {
+            padding: 100px 0;
+            background: var(--cinza-claro);
+        }
+        
+        .parceiros-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .parceiros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .parceiro-card {
+            background: var(--branco);
+            padding: 40px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .parceiro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .parceiro-card img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .parceiro-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        /* ===== CONTATO ===== */
+        .contato {
+            padding: 100px 0;
+            background: var(--azul-escuro);
+            color: var(--branco);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contato::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.05), transparent);
+            clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+        }
+        
+        .contato-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .contato-header .section-title {
+            color: var(--branco);
+        }
+        
+        .contato-header .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .contato-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contato-info h3 {
+            font-size: 1.8rem;
+            color: var(--dourado);
+            margin-bottom: 30px;
+        }
+        
+        .contato-comercial {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .contato-comercial:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--dourado);
+        }
+        
+        .contato-comercial h4 {
+            font-size: 1.3rem;
+            color: var(--dourado);
+            margin-bottom: 15px;
+        }
+        
+        .contato-comercial p {
+            font-size: 1rem;
+            margin: 8px 0;
+            color: var(--cinza-claro);
+        }
+        
+        .contato-comercial i {
+            color: var(--dourado);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .contato-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .contato-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .contato-item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--dourado);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--azul-escuro);
+            flex-shrink: 0;
+        }
+        
+        .contato-item-text h4 {
+            font-size: 0.9rem;
+            color: var(--dourado);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .contato-item-text p {
+            font-size: 1rem;
+            color: var(--cinza-claro);
+        }
+        
+        .contato-item-text a {
+            color: var(--cinza-claro);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contato-item-text a:hover {
+            color: var(--dourado);
+        }
+        
+        .contato-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contato-form h3 {
+            font-size: 1.5rem;
+            color: var(--dourado);
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--cinza-claro);
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--branco);
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--dourado);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--azul-medio);
+            color: var(--cinza-claro);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-sobre h3 {
+            font-size: 1.8rem;
+            color: var(--branco);
+            margin-bottom: 20px;
+        }
+        
+        .footer-sobre h3 span {
+            color: var(--dourado);
+        }
+        
+        .footer-sobre p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(201, 169, 97, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dourado);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--dourado);
+        }
+        
+        .footer-social a:hover {
+            background: var(--dourado);
+            color: var(--azul-escuro);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            color: var(--branco);
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: var(--cinza-claro);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--dourado);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom p {
+            color: var(--cinza-medio);
+        }
+        
+        .footer-bottom a {
+            color: var(--dourado);
+            text-decoration: none;
+        }
+        
+        /* ===== WHATSAPP FLUTUANTE ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--branco);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.7);
+            }
+        }
+        
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 1024px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .sobre-content,
+            .estrutura-content,
+            .contato-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--azul-escuro);
+                flex-direction: column;
+                justify-content: center;
+                transition: left 0.3s ease;
+                gap: 30px;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hero {
+                min-height: 90vh;
+                padding-top: 100px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .mvv-grid,
+            .servicos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .estrutura-images {
+                grid-template-columns: 1fr;
+            }
+            
+            .estrutura-image:first-child {
+                grid-column: span 1;
+            }
+            
+            .parceiros-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .estrutura-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .btn-primary {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+            
+            .parceiros-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-container">
+                <a href="#" class="logo">
+                    MA<span>I</span>TRIZ <span>LOG</span>
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#estrutura">Estrutura</a></li>
+                    <li><a href="#parceiros">Parceiros</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-diagonal"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🚚 Fundada em 2026 | Vila Velha/ES</div>
+                <p class="hero-tagline">SEGURANÇA • PONTUALIDADE • EXCELÊNCIA</p>
+                <h1>Soluções Logísticas <span>Integradas</span></h1>
+                <p>Conectamos armazenagem, transporte e operações logísticas em uma estrutura moderna, eficiente e estratégica. Eficiência operacional, agilidade e inteligência em toda a cadeia de suprimentos.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contato" class="btn-primary">Solicitar Orçamento</a>
+                    <a href="#servicos" class="btn-secondary">Nossos Serviços</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2.300m²</span>
+                        <span class="stat-label">Área Total</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Docas Operacionais</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">< 6km</span>
+                        <span class="stat-label">do Porto de Capuaba</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SOBRE NÓS -->
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <div class="sobre-content">
+                <div class="sobre-text">
+                    <h2 class="section-title">Nossa História</h2>
+                    
+                    <p>Fundada em 2026, em Vila Velha, a <strong>MAITRIZ Log</strong> nasceu com o propósito de oferecer soluções logísticas integradas, unindo eficiência operacional, agilidade e inteligência estratégica em toda a cadeia de suprimentos.</p>
+                    
+                    <p>A MAITRIZ Log é resultado da união da experiência de profissionais especializados em gestão logística e transporte, atuando de forma estratégica para entregar soluções personalizadas, redução de custos operacionais e ganho de performance para empresas de diferentes segmentos.</p>
+                    
+                    <div class="sobre-destaque">
+                        <h3>Localização Estratégica</h3>
+                        <p>Localizada em uma área estratégica em Vila Velha, próximo ao porto, rodovias intermunicipais e interestaduais, a empresa também está inserida em um dos ambientes logísticos e tributários mais competitivos do país, permitindo aos seus clientes acesso a importantes benefícios fiscais e incentivos estaduais, que contribuem para maior eficiência tributária, competitividade comercial e otimização das operações de importação, armazenagem e distribuição.</p>
+                    </div>
+                </div>
+                
+                <div class="sobre-image">
+                    <img src="foto-equipe-maitriz.jpg" alt="Equipe MAITRIZ Log - Profissionais especializados em logística">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- MISSÃO, VISÃO E VALORES -->
+    <section class="mvv">
+        <div class="container">
+            <div class="mvv-header">
+                <h2 class="section-title">Nossa Cultura</h2>
+                <p class="section-subtitle">Os pilares que fundamentam cada operação da MAITRIZ Log</p>
+            </div>
+            
+            <div class="mvv-grid">
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Missão</h3>
+                    <p>Oferecer soluções logísticas integradas com excelência, segurança e agilidade, conectando armazenagem, transporte e operações logísticas em uma estrutura moderna, eficiente e estratégica. Atuamos para gerar valor, confiança e resultados sustentáveis aos nossos clientes e parceiros, por meio de operações inteligentes e um alto padrão de atendimento.</p>
+                </div>
+                
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visão</h3>
+                    <p>Ser referência em soluções logísticas no Espírito Santo e no Brasil, reconhecida pela excelência operacional, inovação, credibilidade e capacidade de impulsionar o crescimento sustentável de clientes, parceiros e negócios.</p>
+                </div>
+                
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Valores</h3>
+                    <ul>
+                        <li>Compromisso com resultados, prazos e excelência no atendimento</li>
+                        <li>Eficiência operacional em todos os processos logísticos</li>
+                        <li>Transparência e ética nas relações</li>
+                        <li>Inovação contínua na evolução de serviços</li>
+                        <li>Segurança e confiabilidade em cada etapa</li>
+                        <li>Respeito às pessoas e ao meio ambiente</li>
+                        <li>Espírito empreendedor movido por crescimento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SERVIÇOS -->
+    <section class="servicos" id="servicos">
+        <div class="container">
+            <div class="servicos-header">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <p class="section-subtitle">Oferecemos soluções logísticas integradas com eficiência, segurança e agilidade, atendendo às demandas de armazenagem, movimentação, transporte e distribuição de cargas para diversos segmentos do mercado.</p>
+            </div>
+            
+            <div class="servicos-grid">
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Armazenagem</h3>
+                    <p>Armazenagem de cargas secas e refrigeradas com gestão completa de estoque</p>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>Movimentação</h3>
+                    <p>Recebimento, movimentação e expedição de mercadorias com agilidade</p>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Cross Docking</h3>
+                    <p>Operações de cross docking seco e frigorificado para distribuição rápida</p>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-container-storage"></i>
+                    </div>
+                    <h3>Contêineres</h3>
+                    <p>Estufagem e desova de contêineres com equipamentos especializados</p>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Transporte Rodoviário</h3>
+                    <p>Transporte de cargas secas e refrigeradas com rastreamento em tempo real</p>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Distribuição</h3>
+                    <p>Distribuição logística urbana e regional com rotas otimizadas</p>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Gestão de Ativos</h3>
+                    <p>Gestão e controle de ativos logísticos com tecnologia avançada</p>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Representação</h3>
+                    <p>Representação comercial e operacional para sua empresa</p>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Endereço Fiscal</h3>
+                    <p>Disponibilização de endereço fiscal com benefícios tributários</p>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Soluções Personalizadas</h3>
+                    <p>Soluções logísticas personalizadas conforme a necessidade do cliente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ESTRUTURA -->
+    <section class="estrutura" id="estrutura">
+        <div class="container">
+            <div class="estrutura-content">
+                <div class="estrutura-info">
+                    <h2 class="section-title">Estrutura</h2>
+                    
+                    <p>Oferecemos uma solução logística completa e integrada para atender com eficiência todas as etapas da sua operação.</p>
+                    
+                    <p>Contamos com uma estrutura de mais de 2.300 m², equipada com 5 docas preparadas para a movimentação de cargas secas e refrigeradas, garantindo agilidade, segurança e alto desempenho operacional.</p>
+                    
+                    <p><strong>Nossa localização representa um importante diferencial competitivo.</strong> Estamos situados a menos de 6 km do Porto de Capuaba, com fácil acesso às rodovias BR-101 e BR-262, proporcionando maior rapidez nas operações de cross docking, armazenagem, distribuição e apoio portuário.</p>
+                    
+                    <div class="estrutura-stats">
+                        <div class="estrutura-stat">
+                            <span class="estrutura-stat-number">2.300m²</span>
+                            <span class="estrutura-stat-label">Área Total de Operação</span>
+                        </div>
+                        <div class="estrutura-stat">
+                            <span class="estrutura-stat-number">5 Docas</span>
+                            <span class="estrutura-stat-label">Para Cargas Secas e Refrigeradas</span>
+                        </div>
+                        <div class="estrutura-stat">
+                            <span class="estrutura-stat-number">< 6km</span>
+                            <span class="estrutura-stat-label">Porto de Capuaba</span>
+                        </div>
+                        <div class="estrutura-stat">
+                            <span class="estrutura-stat-number">BR-101/262</span>
+                            <span class="estrutura-stat-label">Acesso Rápido</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="estrutura-images">
+                    <div class="estrutura-image">
+                        <img src="estrutura-maitriz-externa.jpg" alt="Estrutura externa MAITRIZ Log - Fachada moderna com docas">
+                    </div>
+                    <div class="estrutura-image">
+                        <img src="estrutura-maitriz-docas.jpg" alt="Docas MAITRIZ Log - Áreas de carga e descarga">
+                    </div>
+                    <div class="estrutura-image">
+                        <img src="estrutura-maitriz-armazem.jpg" alt="Armazém MAITRIZ Log - Interior com organização de cargas">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PARCEIROS -->
+    <section class="parceiros" id="parceiros">
+        <div class="container">
+            <div class="parceiros-header">
+                <h2 class="section-title">Parceiros que Confiam</h2>
+                <p class="section-subtitle">Empresas que escolhem a MAITRIZ Log para suas operações logísticas</p>
+            </div>
+            
+            <div class="parceiros-grid">
+                <div class="parceiro-card">
+                    <img src="logo-wine-boutique.png" alt="Wine Boutique - Cliente MAITRIZ Log">
+                </div>
+                <div class="parceiro-card">
+                    <img src="logo-vm-transportes.png" alt="VM Transporte e Logística - Parceiro MAITRIZ Log">
+                </div>
+                <div class="parceiro-card">
+                    <img src="logo-canaa-comercio.png" alt="Canaã Comércio e Serviços - Cliente MAITRIZ Log">
+                </div>
+                <div class="parceiro-card">
+                    <img src="logo-real-garten.png" alt="Real Garten - Cliente MAITRIZ Log">
+                </div>
+                <div class="parceiro-card">
+                    <img src="logo-casa-porto.png" alt="Casa do Porto - Cliente MAITRIZ Log">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+        <div class="container">
+            <div class="contato-header">
+                <h2 class="section-title">Entre em Contato</h2>
+                <p class="section-subtitle">Solicite um orçamento ou tire suas dúvidas com nossa equipe comercial</p>
+            </div>
+            
+            <div class="contato-content">
+                <div class="contato-info">
+                    <h3>Contato Comercial</h3>
+                    
+                    <div class="contato-comercial">
+                        <h4>Roberto Fanti</h4>
+                        <p><i class="fab fa-whatsapp"></i> (27) 99942-8268</p>
+                        <p><i class="far fa-envelope"></i> Roberto.fanti@maitrizlog.com.br</p>
+                    </div>
+                    
+                    <div class="contato-comercial">
+                        <h4>Maurilio Matos</h4>
+                        <p><i class="fab fa-whatsapp"></i> (27) 99834-1017</p>
+                        <p><i class="far fa-envelope"></i> Maurilio.matos@maitrizlog.com.br</p>
+                    </div>
+                    
+                    <div class="contato-item">
+                        <div class="contato-item-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contato-item-text">
+                            <h4>E-mail Geral</h4>
+                            <p><a href="mailto:comercial@maitrizlog.com.br">comercial@maitrizlog.com.br</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contato-item">
+                        <div class="contato-item-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contato-item-text">
+                            <h4>Endereço</h4>
+                            <p>Rua Parnamirim, nº50, Cobilândia<br>Vila Velha/ES – CEP 29.111.630</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contato-item">
+                        <div class="contato-item-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contato-item-text">
+                            <h4>Website</h4>
+                            <p><a href="http://www.maitrizlog.com.br" target="_blank">www.maitrizlog.com.br</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contato-form">
+                    <h3>Envie sua Mensagem</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" placeholder="Descreva sua necessidade logística..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-sobre">
+                    <h3>MA<span>I</span>TRIZ <span>LOG</span></h3>
+                    <p>Soluções logísticas integradas com segurança, pontualidade e excelência. Conectando sua empresa a resultados sustentáveis através de operações inteligentes.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#estrutura">Estrutura</a></li>
+                        <li><a href="#parceiros">Parceiros</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#servicos">Armazenagem</a></li>
+                        <li><a href="#servicos">Transporte</a></li>
+                        <li><a href="#servicos">Cross Docking</a></li>
+                        <li><a href="#servicos">Distribuição</a></li>
+                        <li><a href="#servicos">Gestão de Ativos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="mailto:comercial@maitrizlog.com.br">E-mail</a></li>
+                        <li><a href="tel:+5527999428268">Telefone</a></li>
+                        <li><a href="#contato">Formulário</a></li>
+                        <li><a href="#contato">Localização</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 MAITRIZ Log - Todos os direitos reservados. | <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5527999428268?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20MAITRIZ%20Log" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- JAVASCRIPT -->
+    <script>
+        // Menu Mobile Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll para links âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animação ao scroll (fade-in elements)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Aplicar animação aos cards e seções
+        document.querySelectorAll('.servico-card, .mvv-card, .parceiro-card, .estrutura-stat').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Formulário de contato (validação básica)
+        const form = document.querySelector('.contato-form form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Obrigado pelo contato! Nossa equipe retornará em breve.');
+                form.reset();
+            });
+        }
+    </script>
+</body>
+</html>
