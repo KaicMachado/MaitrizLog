@@ -23,7 +23,7 @@
         <div class="container">
             <nav class="nav-container">
                 <a href="#" class="logo">
-                   <img src="assets/logo-maitriz.jpeg" alt="">
+                   <img class="logo-img" src="assets/logo-maitriz.jpeg" alt="Logo MAITRIZ Log - Soluções Logísticas Integradas">
                 </a>
                 
                 <ul class="nav-menu">
@@ -482,10 +482,8 @@
             const imgHeader = document.querySelector('.header img');
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
-                imgHeader.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
-                imgHeader.classList.remove('scrolled');
             }
         });
         

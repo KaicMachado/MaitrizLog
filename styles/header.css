@@ -31,8 +31,9 @@
             align-items: center;
         }
         
-        .logo img {
+        .logo-img {
             height: 60px;
+            max-width: min-content;
             border-radius: 8px;
             
         }
