@@ -4,7 +4,8 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+            background: url('../assets/bg-hero.jpg') no-repeat center/cover;
+           /* background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%); */
             padding-top: 80px;
             overflow: hidden;
         }
