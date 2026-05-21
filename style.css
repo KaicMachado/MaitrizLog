@@ -57,8 +57,10 @@
         .section-subtitle {
             font-size: 1.1rem;
             color: var(--texto-medio);
+            margin: 0 auto;
             margin-bottom: 3rem;
             max-width: 800px;
+
         }
         
         .btn-primary {

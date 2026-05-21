@@ -39,18 +39,6 @@
             max-width: 700px;
         }
         
-        .hero-badge {
-            display: inline-block;
-            background: rgba(201, 169, 97, 0.2);
-            color: var(--dourado);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border: 1px solid var(--dourado);
-        }
-        
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 800;
