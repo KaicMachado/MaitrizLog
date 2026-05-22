@@ -30,6 +30,10 @@
             display: flex;
             align-items: center;
         }
+
+        .footer-sobre .logo {
+            margin-bottom: 1rem;
+        }
         
         .logo-img {
             height: 60px;
