@@ -49,7 +49,7 @@
             position: absolute;
             bottom: -10px;
             left: 0;
-            width: 80px;
+            width: 100%;
             height: 4px;
             background: linear-gradient(90deg, var(--dourado), var(--dourado-claro));
         }
