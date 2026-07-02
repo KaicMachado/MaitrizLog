@@ -482,6 +482,15 @@
             margin-right: 10px;
             width: 20px;
         }
+
+        .contato-telefone {
+            color: var(--cinza-claro);
+            text-decoration: none;
+        }
+
+        .contato-telefone:hover {
+            color: var(--dourado);
+        }
         
         .contato-item {
             display: flex;
