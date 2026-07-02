@@ -817,20 +817,20 @@
             .hero h1 {
                 font-size: 1.8rem;
             }
-            
+
             .section-title {
                 font-size: 1.7rem;
             }
-            
+
             .btn-primary {
                 padding: 14px 30px;
                 font-size: 1rem;
             }
-            
+
             .parceiros-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
@@ -838,4 +838,253 @@
                 right: 20px;
                 font-size: 1.7rem;
             }
+        }
+
+        /* ================================================
+           ENHANCEMENTS — Executivo & Tecnológico
+           ================================================ */
+
+        /* --- Barra de progresso de scroll --- */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--dourado), var(--dourado-claro), var(--dourado));
+            background-size: 200% 100%;
+            animation: progressShimmer 2s linear infinite;
+            box-shadow: 0 0 8px rgba(201, 169, 97, 0.8), 0 0 16px rgba(201, 169, 97, 0.4);
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        @keyframes progressShimmer {
+            0%   { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        /* --- Canvas de partículas do hero --- */
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* --- Entrada animada dos filhos do hero-content --- */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content > *:nth-child(1) { opacity: 0; animation: heroFadeUp 0.7s ease 0.25s forwards; }
+        .hero-content > *:nth-child(2) { opacity: 0; animation: heroFadeUp 0.7s ease 0.45s forwards; }
+        .hero-content > *:nth-child(3) { opacity: 0; animation: heroFadeUp 0.7s ease 0.65s forwards; }
+        .hero-content > *:nth-child(4) { opacity: 0; animation: heroFadeUp 0.7s ease 0.85s forwards; }
+        .hero-content > *:nth-child(5) { opacity: 0; animation: heroFadeUp 0.7s ease 1.05s forwards; }
+
+        /* --- Cursor piscante do typewriter --- */
+        .hero-tagline.typing::after {
+            content: '|';
+            color: var(--dourado);
+            font-weight: 300;
+            animation: cursorBlink 0.8s step-end infinite;
+        }
+
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        /* --- Linha scanline animada no hero --- */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(201, 169, 97, 0.04) 50%,
+                transparent 100%
+            );
+            animation: scanline 5s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0%   { top: -30%; }
+            100% { top: 100%; }
+        }
+
+        /* --- Gradiente animado nos números de estatística --- */
+        .stat-number {
+            background: linear-gradient(135deg, var(--dourado) 0%, var(--dourado-claro) 50%, var(--dourado) 100%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldShimmer 3s linear infinite;
+        }
+
+        @keyframes goldShimmer {
+            0%   { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        /* --- Link de nav ativo --- */
+        .nav-active {
+            color: var(--dourado) !important;
+        }
+
+        .nav-active::after {
+            width: 100% !important;
+        }
+
+        /* --- Elementos com reveal no scroll --- */
+        .reveal-el {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .reveal-el.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Fundo de pontos dourados (MVV e Contato) --- */
+        .mvv {
+            background-image: radial-gradient(rgba(201, 169, 97, 0.07) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .contato {
+            background-image: radial-gradient(rgba(201, 169, 97, 0.07) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* --- Glow dourado nos cards ao hover --- */
+        .servico-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 0 0 22px rgba(201, 169, 97, 0.18);
+        }
+
+        .mvv-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 22px rgba(201, 169, 97, 0.18);
+        }
+
+        /* --- Efeito shine no botão primário --- */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transform: skewX(-20deg);
+            transition: left 0.5s ease;
+            pointer-events: none;
+        }
+
+        .btn-primary:hover::after {
+            left: 150%;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 30px rgba(201, 169, 97, 0.6), 0 0 22px rgba(201, 169, 97, 0.3);
+        }
+
+        /* --- Linha decorativa dourada no topo das seções --- */
+        .sobre,
+        .servicos,
+        .estrutura,
+        .parceiros {
+            position: relative;
+        }
+
+        .sobre::before,
+        .servicos::before,
+        .estrutura::before,
+        .parceiros::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--dourado), var(--dourado-claro));
+            border-radius: 2px;
+        }
+
+        /* --- Drop-shadow dourado na logo após scroll --- */
+        .header.scrolled .logo-img {
+            filter: drop-shadow(0 0 6px rgba(201, 169, 97, 0.5));
+            transition: filter 0.3s ease;
+        }
+
+        /* --- Borda animada no formulário de contato --- */
+        .contato-form {
+            position: relative;
+        }
+
+        .contato-form::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 15px;
+            padding: 1px;
+            background: linear-gradient(
+                135deg,
+                rgba(201, 169, 97, 0.15) 0%,
+                rgba(201, 169, 97, 0.65) 30%,
+                rgba(201, 169, 97, 0.15) 60%,
+                rgba(201, 169, 97, 0.65) 100%
+            );
+            background-size: 300% 300%;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: formGlow 4s ease infinite;
+            pointer-events: none;
+        }
+
+        @keyframes formGlow {
+            0%   { background-position: 0% 0%; }
+            50%  { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* --- Bounce no ícone do card de serviço ao hover --- */
+        @keyframes iconBounce {
+            0%   { transform: scale(1.1) translateY(0); }
+            30%  { transform: scale(1.1) translateY(-6px); }
+            60%  { transform: scale(1.1) translateY(-3px); }
+            100% { transform: scale(1.1) translateY(0); }
+        }
+
+        .servico-card:hover .servico-icon {
+            animation: iconBounce 0.6s ease forwards;
+        }
+
+        /* --- Separador superior nas hero-stats --- */
+        .hero-stats {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
         }
