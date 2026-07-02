@@ -491,6 +491,27 @@
         .contato-telefone:hover {
             color: var(--dourado);
         }
+
+        .contato-endereco-link {
+            color: var(--cinza-claro);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contato-endereco-link:hover {
+            color: var(--dourado);
+        }
+
+        .contato-mapa {
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        .contato-mapa iframe {
+            display: block;
+        }
         
         .contato-item {
             display: flex;
